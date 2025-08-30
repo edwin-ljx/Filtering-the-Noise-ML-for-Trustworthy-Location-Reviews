@@ -10,7 +10,7 @@ The goal is to:
 - Support fair representation for businesses
 
 
----
+
 
 ## 🚀 Problem Statement  
 
@@ -29,7 +29,6 @@ Enforces policies → Flags or filters reviews violating rules such as:
 ❌ No fake rants from non-visitors
 
 
----
 
 
 ## 💡 Motivation & Impact
