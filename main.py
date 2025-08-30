@@ -55,7 +55,6 @@ def _guess_columns(headers: List[str]) -> Tuple[Optional[str], Optional[str]]:
     """
     norm_map = {_normalize(h): h for h in headers}
 
-    # Common variants
     loc_candidates = [
         "location", "place", "venue", "restaurant", "store", "hotel", "site", "spot"
     ]
@@ -93,7 +92,6 @@ def evaluate(location: str, review: str) -> Tuple[str, str, str, str]:
     (Decision, Primary Violation, Explanation, RawOutput)
     """
     res = chain.invoke({"location": location.strip(), "review": review.strip()})
-    # res may be a string or an object with .content depending on your LangChain version
     text = getattr(res, "content", res) if not isinstance(res, str) else res
     decision, violation, explanation = _parse_model_output(text)
     return decision, violation, explanation, text
@@ -106,3 +104,91 @@ def process_csv(path: str) -> str:
     if not os.path.isfile(path):
         print(f"[Error] File not found: {path}")
         sys.exit(1)
+
+    with open(path, "r", encoding="utf-8-sig", newline="") as f:
+        reader = csv.DictReader(f)
+        headers = reader.fieldnames or []
+        if not headers:
+            print("[Error] No headers found in CSV.")
+            sys.exit(1)
+
+        loc_col, rev_col = _guess_columns(headers)
+
+        if not loc_col or not rev_col:
+            print("\nCould not auto-detect columns.")
+            print("CSV headers:", headers)
+            loc_col = input("Enter the column name for LOCATION: ").strip()
+            rev_col = input("Enter the column name for REVIEW: ").strip()
+            if loc_col not in headers or rev_col not in headers:
+                print("[Error] Provided column names are not in CSV headers.")
+                sys.exit(1)
+
+        base, ext = os.path.splitext(path)
+        out_path = f"{base}_evaluated{ext}"
+
+        out_headers = headers + ["Decision", "Primary Violation", "Explanation"]
+        include_raw = False
+        if include_raw and "RawOutput" not in out_headers:
+            out_headers.append("RawOutput")
+
+        with open(out_path, "w", encoding="utf-8", newline="") as wf:
+            writer = csv.DictWriter(wf, fieldnames=out_headers)
+            writer.writeheader()
+
+            row_idx = 0
+            for row in reader:
+                row_idx += 1
+                location = (row.get(loc_col) or "").strip()
+                review = (row.get(rev_col) or "").strip()
+
+                if not review:
+                    row["Decision"] = ""
+                    row["Primary Violation"] = ""
+                    row["Explanation"] = ""
+                    if include_raw:
+                        row["RawOutput"] = ""
+                    writer.writerow(row)
+                    continue
+
+                decision, violation, explanation, raw = evaluate(location, review)
+                row["Decision"] = decision
+                row["Primary Violation"] = violation
+                row["Explanation"] = explanation
+                if include_raw:
+                    row["RawOutput"] = raw
+                writer.writerow(row)
+
+                print(f"Processed row {row_idx}: Decision={decision or '—'}")
+
+    return out_path
+
+# -------------------------
+# Main loop with mode select
+# -------------------------
+if __name__ == "__main__":
+    while True:
+        print("\n\n-----------------------")
+        mode = input("Mode: (i) individual review, (f) CSV file, (q) quit: ").strip().lower()
+        if mode == "q":
+            break
+
+        if mode == "i":
+            location_input = input("Enter the location being reviewed (q to quit): ").strip()
+            if location_input.lower() == "q":
+                break
+            review_input = input("Enter your review: ").strip()
+            print("\nEvaluating...\n")
+            decision, violation, explanation, _ = evaluate(location_input, review_input)
+            print(f"Decision: {decision or '—'}")
+            if violation:
+                print(f"Primary Violation: {violation}")
+            print(f"Explanation: {explanation or '—'}")
+
+        elif mode == "f":
+            csv_path = input("Path to CSV file: ").strip().strip('"').strip("'")
+            print("\nEvaluating CSV rows...\n")
+            out_csv = process_csv(csv_path)
+            print(f"\nDone. Output written to: {out_csv}")
+        else:
+            print("Please enter 'i' for individual, 'f' for file, or 'q' to quit.")
+
