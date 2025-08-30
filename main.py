@@ -8,21 +8,23 @@ model = OllamaLLM(model = "llama3.2")
 template = """
 You are an expert in identifying trustworthy and policy-compliant location reviews.
 
-Reference Materials:
-{reference}
+Location Being Reviewed:
+{location}
 
 Review to Evaluate:
 {review}
 
-Policies to Enforce:
-  1.  No Advertisement: Reviews should not contain promotional content, discount offers, or links.
-  2.  No Irrelevant Content: Reviews should focus on the experience at the location, not other matters.
-  3.  No Rant Without Visit: Rants or complaints must come from someone who actually visited, not from speculation or hearsay.
+Policies to Enforce (sentiment-neutral):
+    1. No Advertisement: Reviews should not contain promotional content, discount offers, or links.
+    2. No Irrelevant Content: Reviews should focus on the experience at the specified location, not unrelated matters.
+    3. No Rant Without Visit: Complaints or praise must be based on an actual visit/experience; pure speculation, hearsay, or second-hand rants should be flagged.
+
+Important: Negative or strongly critical reviews are allowed and should not be flagged solely due to sentiment. Only flag if a policy is violated.
 
 Instructions:
-  •  First, determine whether the review is Valid or Flagged.
-  •  If the review is flagged, identify which single policy it violated the most (choose the strongest violation).
-  •  Provide a brief explanation (1 to 2 sentences) justifying your decision.
+    • Determine whether the review is Valid or Flagged.
+    • If flagged, choose the single strongest policy violated (Primary Violation).
+    • Provide a brief explanation (1–2 sentences).
 
 Output Format:
 • Decision: Valid / Flagged
@@ -30,11 +32,24 @@ Output Format:
 • Explanation: [Short reasoning]
 
 ⸻
+Helpful Examples
 
-Example Output:
-• Decision: Flagged
-• Primary Violation: No Advertisement
-• Explanation: The review contains a promotional link to a discount website, which violates the no advertisement policy.
+Example A (Negative but Valid):
+- Review: "Service at dinner was painfully slow and my steak was overcooked. Staff seemed overwhelmed."
+- Decision: Valid
+- Explanation: The review describes a first-hand experience at the location, even though it's negative.
+
+Example B (Speculative Rant → Flagged for Policy 3):
+- Review: "Never been here but my friend told me it’s terrible and probably unsafe."
+- Decision: Flagged
+- Primary Violation: No Rant Without Visit
+- Explanation: The reviewer admits they did not visit and bases the rant on hearsay.
+
+Example C (Advertisement → Flagged for Policy 1):
+- Review: "Get 20% off with my link http://deal.example — best cafe in town!"
+- Decision: Flagged
+- Primary Violation: No Advertisement
+- Explanation: Contains a promotional link and discount offer.
 """
 
 prompt = ChatPromptTemplate.from_template(template)
