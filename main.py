@@ -24,11 +24,18 @@ Important: Negative or strongly critical reviews are allowed and should not be f
 Instructions:
     • Determine whether the review is Valid or Flagged.
     • If flagged, choose the single strongest policy violated (Primary Violation).
-    • Provide a brief explanation (1–2 sentences).
+    • Provide a brief explanation (1 - 2 sentences).
+    • If the review is Valid, assign a rating from 1 to 5 based on the reviewer’s described experience:
+        - 1 = Very negative experience (severe issues, nothing positive)
+        - 2 = Negative overall (clear problems, but not the worst possible)
+        - 3 = Neutral or mixed (average, both good and bad points)
+        - 4 = Positive (good experience with minor issues)
+        - 5 = Very positive (excellent experience, strongly positive tone)
 
 Output Format:
 • Decision: Valid / Flagged
 • Primary Violation (if flagged): [Policy Name]
+• Rating (if valid): [1 - 5 stars]
 • Explanation: [Short reasoning]
 
 ⸻
@@ -54,7 +61,6 @@ Example C (Advertisement → Flagged for Policy 1):
 
 prompt = ChatPromptTemplate.from_template(template)
 chain = prompt | model
-
 
 def clean_dataframe(df: pd.DataFrame) -> pd.DataFrame:
   df = df.drop_duplicates()
@@ -93,6 +99,7 @@ while True:
       print("Exiting program. Goodbye!")
       
   elif mode == "individual":
+      location_input = input("Enter the location being reviewed (q to quit): ")
       review = input("Enter your review (or type 'quit' to exit): ").strip()
       user_input = review
       if review.lower() == "quit":
@@ -100,6 +107,7 @@ while True:
           break
 
   elif mode == "file":
+      location_input = input("Enter the location being reviewed (q to quit): ")
       file_name = input("Enter the file name (with extension, e.g. data.csv) or type 'quit' to exit: ").strip()
       if file_name.lower() == "quit":
           print("Exiting program. Goodbye!")
@@ -112,6 +120,6 @@ while True:
 
   print("\n\n")
   # reviews = retriever.invoke(user_input)
-  result = chain.invoke({"reference": [], "review": user_input}) # update reference: reviews for RAG
+  result = chain.invoke({"location": location_input.strip(), "review": user_input})
   print(result)
 
