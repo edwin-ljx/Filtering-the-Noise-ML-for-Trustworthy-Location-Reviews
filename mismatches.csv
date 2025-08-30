@@ -1,0 +1,4 @@
+id,pred_decision,gt_decision,pred_violation,gt_violation,review
+R006,Valid,Flagged,None,No Irrelevant Content,I love my new phone’s camera—portrait mode is incredible. 5 stars!
+XIC1,Flagged,Flagged,No Rant Without Visit,No Irrelevant Content,This place reminds me of my favorite video game—graphics were amazing!
+R018,Flagged,Flagged,No Irrelevant Content,No Rant Without Visit,"I’ve never brought my pet here, but prices look outrageous from their website."
