@@ -24,18 +24,11 @@ Important: Negative or strongly critical reviews are allowed and should not be f
 Instructions:
     • Determine whether the review is Valid or Flagged.
     • If flagged, choose the single strongest policy violated (Primary Violation).
-    • Provide a brief explanation (1 - 2 sentences).
-    • If the review is Valid, assign a rating from 1 to 5 based on the reviewer’s described experience:
-        - 1 = Very negative experience (severe issues, nothing positive)
-        - 2 = Negative overall (clear problems, but not the worst possible)
-        - 3 = Neutral or mixed (average, both good and bad points)
-        - 4 = Positive (good experience with minor issues)
-        - 5 = Very positive (excellent experience, strongly positive tone)
+    • Provide a brief explanation (1–2 sentences).
 
 Output Format:
 • Decision: Valid / Flagged
 • Primary Violation (if flagged): [Policy Name]
-• Rating (if valid): [1 - 5 stars]
 • Explanation: [Short reasoning]
 
 ⸻
@@ -122,4 +115,3 @@ while True:
   # reviews = retriever.invoke(user_input)
   result = chain.invoke({"location": location_input.strip(), "review": user_input})
   print(result)
-
