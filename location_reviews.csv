@@ -1,0 +1,21 @@
+review_id,location,review,correct_labels,correct_decision
+R002,Sunrise Coffee Bar,Best beans in town! For exclusive deals visit www.beanbonanza.co now!,No Advertisement,Flagged
+R001,Sunrise Coffee Bar,Great cappuccino and friendly baristas. Wi-Fi was reliable for a quick email check.,None,Valid
+R004,Lotus Thai Kitchen,The pad thai was balanced and the mango sticky rice was fresh. Will return.,None,Valid
+R005,City Gym,"Check out my YouTube channel for fitness tips and gear links! Anyway, treadmill looked fine.",No Advertisement,Flagged
+R006,City Gym,I love my new phone’s camera—portrait mode is incredible. 5 stars!,No Irrelevant Content,Flagged
+XIC1,Sunrise Coffee Bar,This place reminds me of my favorite video game—graphics were amazing!,No Irrelevant Content,Flagged
+R018,Riverside Vet Clinic,"I’ve never brought my pet here, but prices look outrageous from their website.",No Rant Without Visit,Flagged
+R009,Harborview Dental Clinic,Use code SMILE50 at dentaldeals.example for half off whitening near you!,No Advertisement,Flagged
+R020,Pinecone Hardware,Helpful staff cut keys while I waited; fair prices.,None,Valid
+R015,Skyline Cinema,Movie was boring (not the cinema’s fault). Seats were comfy and sound was crisp.,None,Valid
+R003,Lotus Thai Kitchen,"I haven’t been here, but my cousin said it’s awful and the service is always rude.",No Rant Without Visit,Flagged
+R019,Pinecone Hardware,Get your tools at hammerhub.example instead—fast shipping and coupons!,No Advertisement,Flagged
+XIC3,BlueFin Sushi,"My dog loves car rides, so I gave this place a high rating.",No Irrelevant Content,Flagged
+R008,Greenleaf Park,Plenty of shade and clean restrooms. Great for picnics.,None,Valid
+R016,Skyline Cinema,Follow @Dealz4U for free popcorn hacks!!!,No Advertisement,Flagged
+R011,Metro Bookstore,"Never visited this place, but I’m giving 1 star because parking downtown is bad.",No Rant Without Visit,Flagged
+XIC2,City Gym,"I just bought new running shoes, can’t wait to test them. 5 stars anyway.",No Irrelevant Content,Flagged
+R007,Greenleaf Park,"Didn’t go inside the park, but the neighborhood has too many dogs—1 star.",No Rant Without Visit,Flagged
+R014,BlueFin Sushi,"Didn’t eat here, just walked past. Looked crowded so 2 stars.",No Rant Without Visit,Flagged
+XIC4,Skyline Cinema,"The stock market is crazy these days, thought about it here.",No Irrelevant Content,Flagged
