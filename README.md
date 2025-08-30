@@ -44,7 +44,7 @@ We design and implement an ML-based system that:
 
 ## ⚙️ Setup
 1) Requirements
-- Create a file named requirements.txt with the following:
+- Create a file named [requirements.txt](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/requirements.txt) with the following:
 ```bash
 langchain
 langchain-ollama
