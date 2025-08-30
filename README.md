@@ -9,7 +9,6 @@ The goal is to:
 - Enhance user trust
 - Support fair representation for businesses
 
----
 
 ## Problem Statement
 
