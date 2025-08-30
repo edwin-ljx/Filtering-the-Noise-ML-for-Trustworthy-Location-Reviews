@@ -147,3 +147,6 @@ Violation Accuracy: 7/10 = 70.00%
 
 Saved mismatch report: mismatches.csv
 ```
+
+## 🕹️ Demo
+Try out an interactive demo of the project by downloading and running [demo.ipynb](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/demo.ipynb)!
