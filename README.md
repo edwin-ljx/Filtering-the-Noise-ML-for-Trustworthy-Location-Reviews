@@ -79,7 +79,7 @@ ollama pull llama3.2
 ## ▶️ Usage
 ### Evaluate Reviews (Main Script)
 
-The main.py script is interactive and supports two modes:
+The [main.py](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/main.py) script is interactive and supports two modes:
   
 - Individual review input (manual typing in terminal)
 
@@ -124,7 +124,7 @@ Done. Output written to: /Users/scormon/Downloads/location_reviews_evaluated.csv
    
 ### Test with Ground Truth (Test Script)
 
-The test.py script helps compare predicted outputs against ground-truth labels and generates accuracy + mismatch reports.
+The [test.py](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/test.py) script helps compare predicted outputs against ground-truth labels and generates accuracy + mismatch reports.
 
 ```
 # Example
