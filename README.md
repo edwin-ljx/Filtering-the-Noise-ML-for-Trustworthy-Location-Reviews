@@ -55,6 +55,9 @@ source .venv/bin/activate     # For Linux/Mac
 # Install dependencies
 pip install -r requirements.txt
 
+# Run the file
+python .\main.py
+
 ```
 
 2) Install Ollama
@@ -67,3 +70,23 @@ ollama
 ollama pull llama3.2
 ```
 
+## ⏩ Quickstart 
+Once setup is complete, you can reproduce our main results with:
+
+### Individual 
+```bash
+Mode: (i) individual review, (f) CSV file, (q) quit: i
+Enter the location being reviewed (q to quit): coffeetown
+Enter your review: "I love this place! By the way, check out www.bestcoffeeintown.com for amazing deals on lattes!
+```
+
+### CSV file 
+```bash
+# Example using Balanced_Review_Policy_Test_Set_20_Named_Labels_Decision_.csv
+
+Mode: (i) individual review, (f) CSV file, (q) quit: f
+Path to CSV file: ..\Balanced_Review_Policy_Test_Set_20_Named_Labels_Decision_.csv
+Enter the column name for LOCATION: location_name
+Enter the column name for REVIEW: review_text
+```
+ 
