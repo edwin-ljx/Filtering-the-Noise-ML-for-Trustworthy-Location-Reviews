@@ -119,19 +119,16 @@ def process_csv(path: str) -> str:
         if not loc_col or not rev_col:
             print("\nCould not auto-detect columns.")
             print("CSV headers:", headers)
-            # Ask user which columns to use (keeps the script flexible)
             loc_col = input("Enter the column name for LOCATION: ").strip()
             rev_col = input("Enter the column name for REVIEW: ").strip()
             if loc_col not in headers or rev_col not in headers:
                 print("[Error] Provided column names are not in CSV headers.")
                 sys.exit(1)
 
-        # Prepare output path
         base, ext = os.path.splitext(path)
         out_path = f"{base}_evaluated{ext}"
 
         out_headers = headers + ["Decision", "Primary Violation", "Explanation"]
-        # If you also want the raw LLM output for debugging, append "RawOutput"
         include_raw = False
         if include_raw and "RawOutput" not in out_headers:
             out_headers.append("RawOutput")
@@ -147,7 +144,6 @@ def process_csv(path: str) -> str:
                 review = (row.get(rev_col) or "").strip()
 
                 if not review:
-                    # Skip empty review rows, but still write row unchanged
                     row["Decision"] = ""
                     row["Primary Violation"] = ""
                     row["Explanation"] = ""
