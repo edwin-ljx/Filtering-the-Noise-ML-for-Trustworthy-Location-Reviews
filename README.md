@@ -66,18 +66,18 @@ pip install -r requirements.txt
 
 ```
 
-2) Install Ollama
+3) Install Ollama
 
 [Download Ollama here](https://ollama.com/download)
 
-3) Start Ollama & Pull Models in Command Prompt
+4) Start Ollama & Pull Models in Command Prompt
 ```bash
 ollama
 ollama pull llama3.2
 ```
 
 ## ▶️ Usage
-1) Evaluate Reviews (Main Script)
+### Evaluate Reviews (Main Script)
 
 The main.py script is interactive and supports two modes:
   
@@ -122,7 +122,7 @@ Processed row 10: Decision=Valid
 Done. Output written to: /Users/scormon/Downloads/location_reviews_evaluated.csv
 ```
    
-2) Test with Ground Truth (Test Script)
+### Test with Ground Truth (Test Script)
 
 The test.py script helps compare predicted outputs against ground-truth labels and generates accuracy + mismatch reports.
 
