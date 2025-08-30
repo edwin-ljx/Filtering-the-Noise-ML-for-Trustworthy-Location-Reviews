@@ -55,6 +55,8 @@ source .venv/bin/activate     # For Linux/Mac
 # Install dependencies
 pip install -r requirements.txt
 
+```
+
 2) Install Ollama
 
 👉 [Download Ollama](https://ollama.com/download)
@@ -64,4 +66,5 @@ pip install -r requirements.txt
 ollama
 ollama pull llama3.2
 ollama pull mxbai-embed-large
+```
 
