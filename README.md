@@ -65,6 +65,5 @@ pip install -r requirements.txt
 ```bash
 ollama
 ollama pull llama3.2
-ollama pull mxbai-embed-large
 ```
 
