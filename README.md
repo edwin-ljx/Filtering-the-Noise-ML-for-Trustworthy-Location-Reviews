@@ -22,11 +22,11 @@ We design and implement an ML-based system that:
 
 - Enforces policies → Flags or filters reviews violating rules such as:
 
-    - ❌ No advertisements/promotions
+    ❌ No advertisements/promotions
 
-    - ❌ No irrelevant/off-topic content
+    ❌ No irrelevant/off-topic content
 
-    - ❌ No fake rants from non-visitors
+    ❌ No fake rants from non-visitors
 
 
 
