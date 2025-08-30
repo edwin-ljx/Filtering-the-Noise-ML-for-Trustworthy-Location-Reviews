@@ -10,6 +10,8 @@ The goal is to:
 - Support fair representation for businesses
 
 
+
+
 ## Problem Statement
 
 We design and implement an ML-based system that:
@@ -26,6 +28,9 @@ Enforces policies → Flags or filters reviews violating rules such as:
 
 ❌ No fake rants from non-visitors
 
+
+
+
 ## Motivation & Impact
 
 For Users → Increases trust in reviews, leading to smarter decisions.
@@ -33,6 +38,8 @@ For Users → Increases trust in reviews, leading to smarter decisions.
 For Businesses → Reduces malicious/irrelevant reviews, ensuring fairer reputation.
 
 For Platforms → Automates moderation, reducing manual effort while improving credibility.
+
+
 
 
 ## Setup
@@ -50,3 +57,4 @@ pip install -r requirements.txt
 ollama
 ollama pull llama3.2
 ollama pull mxbai-embed-large
+
