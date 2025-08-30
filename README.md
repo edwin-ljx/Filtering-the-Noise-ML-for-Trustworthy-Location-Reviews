@@ -44,17 +44,27 @@ We design and implement an ML-based system that:
 
 ## ⚙️ Setup
 1) Environment
-python -m venv .venv
+```bash
+# Create virtual environment
+python -m venv .venv  
+
+# Activate the environment
 source .venv/bin/activate     # For Linux/Mac
-.venv\Scripts\activate        # For Windows
+.venv\Scripts\activate        # For Windows  
+
+# Install dependencies
 pip install -r requirements.txt
+
+```
 
 2) Install Ollama
 
 👉 [Download Ollama](https://ollama.com/download)
 
 3) Start Ollama & Pull Models in Command Prompt
+```bash
 ollama
 ollama pull llama3.2
 ollama pull mxbai-embed-large
+```
 
