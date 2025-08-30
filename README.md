@@ -98,7 +98,7 @@ Explanation: The review contains the website www.pizzapromo.com and mentions "Vi
 ```
 
           
-- CSV file batch evaluation
+- CSV file batch evaluation (example: [location_reviews.csv](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/location_reviews.csv))
 
 ```
 # Example
@@ -124,7 +124,7 @@ Done. Output written to: /Users/scormon/Downloads/location_reviews_evaluated.csv
    
 ### Test with Ground Truth (Test Script)
 
-The [test.py](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/test.py) script helps compare predicted outputs against ground-truth labels and generates accuracy + mismatch reports.
+The [test.py](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/test.py) script helps compare predicted outputs (example: [location_reviews_evaluated.py](https://github.com/edwin-ljx/Filtering-the-Noise-ML-for-Trustworthy-Location-Reviews/blob/main/location_reviews_evaluated.csv)) against ground-truth labels and generates accuracy + mismatch reports.
 
 ```
 # Example
