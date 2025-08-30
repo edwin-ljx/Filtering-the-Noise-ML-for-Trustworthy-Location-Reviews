@@ -2,7 +2,7 @@
 
 Online reviews shape how people perceive local businesses and locations. Yet, irrelevant, misleading, or low-quality reviews can distort reputation and mislead users.
 
-This project—developed for a hackathon challenge—leverages Machine Learning (ML) and Natural Language Processing (NLP) to automatically evaluate the quality and relevancy of Google location reviews, aligning them with platform policies.
+This project, developed for a hackathon challenge, leverages Machine Learning (ML) and Natural Language Processing (NLP) to automatically evaluate the quality and relevancy of Google location reviews, aligning them with platform policies.
 
 The goal is to:
 - Improve review reliability
