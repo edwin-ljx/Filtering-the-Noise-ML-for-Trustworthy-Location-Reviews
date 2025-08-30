@@ -16,17 +16,17 @@ The goal is to:
 
 We design and implement an ML-based system that:
 
-Gauges review quality → Detects spam, ads, irrelevant rants, and fake experiences.
+- Gauges review quality → Detects spam, ads, irrelevant rants, and fake experiences.
 
-Assesses relevancy → Ensures reviews genuinely relate to the business or location.
+- Assesses relevancy → Ensures reviews genuinely relate to the business or location.
 
-Enforces policies → Flags or filters reviews violating rules such as:
+- Enforces policies → Flags or filters reviews violating rules such as:
 
-❌ No advertisements/promotions
+    - ❌ No advertisements/promotions
 
-❌ No irrelevant/off-topic content
+    - ❌ No irrelevant/off-topic content
 
-❌ No fake rants from non-visitors
+    - ❌ No fake rants from non-visitors
 
 
 
