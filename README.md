@@ -10,9 +10,9 @@ The goal is to:
 - Support fair representation for businesses
 
 
+---
 
-
-## Problem Statement
+## 🚀 Problem Statement  
 
 We design and implement an ML-based system that:
 
@@ -29,20 +29,21 @@ Enforces policies → Flags or filters reviews violating rules such as:
 ❌ No fake rants from non-visitors
 
 
+---
 
 
-## Motivation & Impact
+## 💡 Motivation & Impact
 
-For Users → Increases trust in reviews, leading to smarter decisions.
+- For Users → Increases trust in reviews, leading to smarter decisions.
 
-For Businesses → Reduces malicious/irrelevant reviews, ensuring fairer reputation.
+- For Businesses → Reduces malicious/irrelevant reviews, ensuring fairer reputation.
 
-For Platforms → Automates moderation, reducing manual effort while improving credibility.
-
-
+- For Platforms → Automates moderation, reducing manual effort while improving credibility.
 
 
-## Setup
+
+
+## ⚙️ Setup
 1) Environment
 python -m venv .venv
 source .venv/bin/activate     # For Linux/Mac
